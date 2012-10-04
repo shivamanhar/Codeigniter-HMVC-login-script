@@ -95,6 +95,11 @@
             padding-left:30px;
             width:730px;
         }
+        .formWrap h2 span {
+            float:right;
+            font-size: 12px;
+            padding-right:20px;
+        }
         .formWrap p {
             font-size:26px;
             font-family: myriad pro;
