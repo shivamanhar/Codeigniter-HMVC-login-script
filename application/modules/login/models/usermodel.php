@@ -155,5 +155,50 @@ class UserModel extends CI_Model {
       $this->db->query($sql, array($userID));
       
   }
+  
+  /**
+     * 1. When given a password returns an encrypted password, salted with encryption key
+     *
+     * @access public
+     * @return String
+     */
+
+    public function prepare_password($password) {
+
+        return sha1($password .  $this->config->item('encryption_key')  );
+
+    }
+  
+  /**
+     * createUser()
+     * 
+     * 1. Given an array creates a new user in database.
+     *
+     * @access public
+     * @param string
+  */
+  
+  public function createUser($userDetails) {
+
+      //db parameterised query.
+      $query = "INSERT into user
+                (Username,
+                Password,
+                email,
+                privileges)
+                VALUES
+                (?,
+                ?,
+                ?,
+                2)";
+
+      if ( $this->db->query($query, $userDetails) ) {
+          return true;
+      }
+      else {
+          return false;
+      }
+      
+  }
 } 
 ?>

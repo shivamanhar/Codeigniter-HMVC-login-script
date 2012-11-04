@@ -98,7 +98,7 @@ class login extends CI_Controller
     public function log_user_in($username, $password)
     {
         //Prepare password for comparison with DB.
-        $password = $this->prepare_password($password);
+        $password = $this->usermodel->prepare_password($password);
         
         //Get user id
         $fields = array(
@@ -214,19 +214,6 @@ class login extends CI_Controller
 
             return false;
         }
-    }
-
-    /**
-     * 1. When given a password returns an encrypted password, salted with encryption key
-     *
-     * @access public
-     * @return String
-     */
-
-    public function prepare_password($password) {
-
-        return sha1($password . $config['encryption_key']);
-
     }
 
     /**

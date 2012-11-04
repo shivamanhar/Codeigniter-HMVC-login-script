@@ -4,7 +4,7 @@
 <div class="formWrap">
     <h2> 
         User Login 
-        <span> <a href="login/register/registration_form"> Register Account </a> </span>
+        <span> <a href="index.php/login/register/registration_form"> Register Account </a> </span>
     </h2>
     <?php echo form_open("login/validate_credentials"); ?>
     <p> Username: </p>
